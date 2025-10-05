@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spyda Digital - SEO That Actually Grows Your Business</title>
+    <meta name="description" content="Data-driven SEO for established businesses. No fluff, no vanity metrics. Transparent search strategy that generates qualified leads and revenue, not just rankings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .logo .brand-name {
+            font-weight: 700;
+            color: #00D4FF;
+        }
+
+        .logo .brand-type {
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00D4FF;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #00D4FF, #0099CC);
+            color: #000000;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            text-align: center;
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: #00D4FF;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00D4FF, #0099CC);
+            color: #000000;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            padding: 16px 32px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00D4FF;
+            color: #00D4FF;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #111111;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #00D4FF;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00D4FF, #0099CC);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #00D4FF;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: #00D4FF;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Credibility Section */
+        .credibility {
+            padding: 60px 0;
+            background: #111111;
+        }
+
+        .credibility-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .credibility .stat {
+            text-align: center;
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .credibility .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00D4FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .credibility .stat-label {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Methodology Section */
+        .methodology {
+            padding: 80px 0;
+            background: #0a0a0a;
+        }
+
+        .methodology-content {
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .methodology-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #00D4FF;
+            margin-bottom: 1rem;
+        }
+
+        .methodology-text p {
+            color: #cccccc;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .pillars {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .pillar {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #00D4FF;
+        }
+
+        .pillar h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar p {
+            color: #cccccc;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .methodology-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #111111, #1a1a1a);
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00D4FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 80px 0;
+            background: #000000;
+        }
+
+        .why-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .why-intro p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .why-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00D4FF, #0099CC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000000;
+            margin: 0 auto 1.5rem;
+        }
+
+        .why-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .why-item p {
+            color: #cccccc;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #111111 0%, #000000 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #00D4FF;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #00D4FF;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credibility-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .credibility .stat {
+                padding: 1.5rem;
+            }
+
+            .credibility .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .why-intro p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo"><span class="brand-name">Spyda</span> <span class="brand-type">Digital</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="mailto:bailey@spyda.digital?subject=Request Free SEO Audit&body=Hi Spyda Digital,%0D%0A%0D%0AI would like to request a free SEO audit.%0D%0A%0D%0AMany thanks," class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>SEO That <span class="highlight">Actually Grows</span> Your Business</h1>
+            <p>Data-driven search strategy that generates qualified leads and revenue, not just rankings. No fluff. No vanity metrics. Just transparent SEO that delivers measurable results.</p>
+            <div class="hero-buttons">
+                <a href="mailto:bailey@spyda.digital?subject=Request Free SEO Audit&body=Hi Spyda Digital,%0D%0A%0D%0AI would like to request a free SEO audit.%0D%0A%0D%0AMany thanks," class="btn-primary">Get Your Free SEO Audit</a>
+                <a href="#approach" class="btn-secondary">See Our Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Section -->
+    <section class="credibility">
+        <div class="container">
+            <h2 class="section-title">Trusted by <span class="highlight">Established</span> Businesses</h2>
+            <div class="credibility-stats">
+                <div class="stat">
+                    <div class="stat-number">Specialist SEO</div>
+                    <div class="stat-label">Focused solely on search. We stick to what we're good at.</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Data-Driven</div>
+                    <div class="stat-label">No guessing. Every decision backed by research and performance data.</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Transparent</div>
+                    <div class="stat-label">Reports you'll actually understand. Not spreadsheets full of vanity metrics.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our <span class="highlight">SEO</span> Services</h2>
+            <p class="services-subtitle">Comprehensive search strategy focused on what actually drives business growth: qualified traffic, leads, and revenue.</p>
+            <div class="services-grid">
+                <div class="service-card" id="seo-audits">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO Audits & Strategy</h3>
+                    <p>Find out exactly what's holding your rankings back and get a clear 6-month roadmap to fix it. Comprehensive technical analysis, competitor research, and strategic planning that actually identifies revenue opportunities, not just SEO errors.</p>
+                </div>
+                <div class="service-card" id="technical-seo">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Technical SEO</h3>
+                    <p>Fix the foundation Google actually cares about. Core Web Vitals optimisation, SSL certificates, structured data, mobile responsiveness: all the technical elements that separate page 1 from page 3. We ensure your technical setup supports, not sabotages, your rankings.</p>
+                </div>
+                <div class="service-card" id="local-seo">
+                    <div class="service-icon">📍</div>
+                    <h3>Local SEO</h3>
+                    <p>Dominate local search and get customers finding you first. Google Business Profile optimisation, local directory listings, and location-specific content that drives qualified local traffic to your business.</p>
+                </div>
+                <div class="service-card" id="geo-optimisation">
+                    <div class="service-icon">🤖</div>
+                    <h3>GEO Optimisation</h3>
+                    <p>Future-proof your search presence for Google's AI-powered results. We optimise for Generative Engine Optimisation to ensure your business appears in AI-generated search responses, keeping you visible as search evolves.</p>
+                </div>
+                <div class="service-card" id="content-reporting">
+                    <div class="service-icon">📊</div>
+                    <h3>Content & Reporting</h3>
+                    <p>Strategic content that ranks and converts. We track real metrics: non-branded traffic, conversions, and qualified enquiries, with transparent monthly reporting. You'll know exactly what's working and why, with insights you can actually use.</p>
+                </div>
+                <div class="service-card" id="conversion-optimisation">
+                    <div class="service-icon">🎯</div>
+                    <h3>Conversion Optimisation</h3>
+                    <p>Turn your increased traffic into measurable business results. Landing page optimisation, conversion tracking, and lead generation strategies that transform your SEO investment into revenue growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our SEO Approach Section -->
+    <section id="approach" class="methodology">
+        <div class="container">
+            <h2 class="section-title">Our <span class="highlight">SEO</span> Approach</h2>
+            <div class="methodology-content">
+                <div class="methodology-text">
+                    <h3>Data-Driven Approach</h3>
+                    <p>We don't do checkbox SEO. Every recommendation is backed by comprehensive keyword research, competitor analysis, and performance data, not guesswork.</p>
+                    
+                    <h3>Three Pillars of SEO Excellence</h3>
+                    <div class="pillars">
+                        <div class="pillar">
+                            <h4>Technical SEO</h4>
+                            <p>Core Web Vitals, SSL certificates, sitemaps, structured data, mobile responsiveness: the foundation that Google rewards and your competitors often ignore.</p>
+                        </div>
+                        <div class="pillar">
+                            <h4>On-Page SEO</h4>
+                            <p>Strategic content optimisation, metadata refinement, heading structure, and keyword-focused content creation that ranks and converts.</p>
+                        </div>
+                        <div class="pillar">
+                            <h4>Off-Page & Local SEO</h4>
+                            <p>Google Business Profile optimisation, local directories, backlink strategies, and location-specific content for maximum local visibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">What Makes Our <span class="highlight">SEO</span> Different</h2>
+            <div class="why-intro">
+                <p>Tired of agencies that overpromise and underdeliver? Here's what makes us different:</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-number">1</div>
+                    <h3>Data-Driven Strategy</h3>
+                    <p>Every recommendation backed by keyword research, competitor analysis, and performance data. We measure, analyse, and optimise based on real insights, not hunches.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">2</div>
+                    <h3>Transparent Reporting</h3>
+                    <p>Monthly reports showing rankings, traffic, and conversions, with clear insights into what's working. We track non-branded traffic to show you new audiences, not just vanity metrics.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">3</div>
+                    <h3>Technical Excellence</h3>
+                    <p>Deep expertise in Core Web Vitals, structured data, mobile optimisation, and the technical foundations that support rankings. We ensure your site performs at the highest level.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">4</div>
+                    <h3>Future-Focused Approach</h3>
+                    <p>We optimise for today's search engines while keeping you ahead of algorithm updates. Our adaptive approach keeps you competitive as search evolves and competitors fall behind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Stop Guessing & <span class="highlight">Start Growing</span></h2>
+            <p>Let's discuss your SEO goals and create a data-driven strategy that delivers measurable results. We'll start with a comprehensive audit and 6-month roadmap tailored to your business.</p>
+            <a href="mailto:bailey@spyda.digital?subject=Request Free SEO Audit&body=Hi Spyda Digital,%0D%0A%0D%0AI would like to request a free SEO audit.%0D%0A%0D%0AMany thanks," class="btn-primary">Get Your Free SEO Audit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Spyda Digital</h3>
+                    <p>Data-driven SEO specialists focused on delivering measurable results that generate leads and grow your business.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#seo-audits">SEO Audits & Strategy</a>
+                    <a href="#technical-seo">Technical SEO</a>
+                    <a href="#local-seo">Local SEO</a>
+                    <a href="#content-reporting">Content & Reporting</a>
+                    <a href="#conversion-optimisation">Conversion Optimisation</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="mailto:bailey@spyda.digital?subject=Request Free SEO Audit&body=Hi Spyda Digital,%0D%0A%0D%0AI would like to request a free SEO audit.%0D%0A%0D%0AMany thanks,">bailey@spyda.digital</a></p>
+                    <p>+44 7340 379 946</p>
+                    <p>Available for projects worldwide</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Spyda Digital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
