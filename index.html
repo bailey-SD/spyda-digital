@@ -256,13 +256,18 @@
         .hero h1 .highlight::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -4px;
             left: 0;
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, #00CFFF, #0099CC);
             border-radius: 2px;
             opacity: 0.9;
+        }
+
+        .hero h1 .second-line {
+            display: inline-block;
+            margin-top: 0.5rem;
         }
 
         .highlight {
@@ -1540,17 +1545,25 @@
             .approach-step {
                 text-align: left;
                 flex-direction: row;
-                align-items: center;
-                gap: 1rem;
+                align-items: flex-start;
+                gap: 1.5rem;
             }
 
             .approach-step-icon {
                 margin-bottom: 0;
                 flex-shrink: 0;
+                width: 60px;
+                height: 60px;
+                margin-top: 0.25rem;
             }
 
-            .approach-step h4,
-            .approach-step p {
+            .approach-step-content {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .approach-step-content h4,
+            .approach-step-content p {
                 text-align: left;
                 max-width: none;
             }
@@ -1610,7 +1623,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>SEO That <span class="highlight">Actually Grows</span><br>Your Business</h1>
+            <h1>SEO That <span class="highlight">Actually Grows</span><br><span class="second-line">Your Business</span></h1>
             <p>Data-driven search strategy that generates qualified leads and revenue, not just rankings. No fluff. No vanity metrics. Just transparent SEO that delivers measurable results.</p>
             <div class="hero-buttons">
                 <a href="mailto:bailey@spyda.digital" class="btn-primary">Get Your Free SEO Audit</a>
@@ -1746,18 +1759,24 @@
                 <div class="approach-connector"></div>
                 <div class="approach-step">
                     <div class="approach-step-icon">01</div>
-                    <h4>Research & Audit</h4>
-                    <p>Comprehensive analysis of your current position and competitive landscape</p>
+                    <div class="approach-step-content">
+                        <h4>Research & Audit</h4>
+                        <p>Comprehensive analysis of your current position and competitive landscape</p>
+                    </div>
                 </div>
                 <div class="approach-step">
                     <div class="approach-step-icon">02</div>
-                    <h4>Strategy & Implement</h4>
-                    <p>Data-driven recommendations executed with precision and transparency</p>
+                    <div class="approach-step-content">
+                        <h4>Strategy & Implement</h4>
+                        <p>Data-driven recommendations executed with precision and transparency</p>
+                    </div>
                 </div>
                 <div class="approach-step">
                     <div class="approach-step-icon">03</div>
-                    <h4>Measure & Refine</h4>
-                    <p>Continuous monitoring and refinement for sustained growth</p>
+                    <div class="approach-step-content">
+                        <h4>Measure & Refine</h4>
+                        <p>Continuous monitoring and refinement for sustained growth</p>
+                    </div>
                 </div>
             </div>
 
