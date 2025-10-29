@@ -244,7 +244,7 @@
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 2rem;
-            line-height: 1.1;
+            line-height: 1.15;
             position: relative;
             z-index: 2;
             max-width: 1050px;
@@ -256,7 +256,7 @@
         .hero h1 .highlight::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -8px;
             left: 0;
             right: 0;
             height: 3px;
@@ -1383,14 +1383,14 @@
             }
 
             .hero {
-                padding: 120px 0 70px;
+                padding: 160px 0 80px;
                 min-height: 100vh;
             }
 
             .hero h1 {
                 font-size: 2.8rem;
                 margin-bottom: 2.5rem;
-                line-height: 1.2;
+                line-height: 1.25;
                 max-width: 100%;
             }
 
@@ -1571,6 +1571,22 @@
             color: #00CFFF;
             text-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
         }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+                line-height: 1.3;
+            }
+            
+            .hero h1 br {
+                display: inline;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1594,7 +1610,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>SEO That <span class="highlight">Actually Grows</span> Your Business</h1>
+            <h1>SEO That <span class="highlight">Actually Grows</span><br>Your Business</h1>
             <p>Data-driven search strategy that generates qualified leads and revenue, not just rankings. No fluff. No vanity metrics. Just transparent SEO that delivers measurable results.</p>
             <div class="hero-buttons">
                 <a href="mailto:bailey@spyda.digital" class="btn-primary">Get Your Free SEO Audit</a>
@@ -1735,12 +1751,12 @@
                 </div>
                 <div class="approach-step">
                     <div class="approach-step-icon">02</div>
-                    <h4>Strategy & Implementation</h4>
+                    <h4>Strategy & Implement</h4>
                     <p>Data-driven recommendations executed with precision and transparency</p>
                 </div>
                 <div class="approach-step">
                     <div class="approach-step-icon">03</div>
-                    <h4>Measure & Optimise</h4>
+                    <h4>Measure & Refine</h4>
                     <p>Continuous monitoring and refinement for sustained growth</p>
                 </div>
             </div>
