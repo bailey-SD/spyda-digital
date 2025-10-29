@@ -40,10 +40,19 @@
             right: 0;
             background: rgba(11, 11, 11, 0.95);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(0, 207, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 207, 255, 0.15);
             transition: all 0.3s ease;
+        }
+
+        /* Scrolled state - enhanced styling */
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 207, 255, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -78,15 +87,18 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 3rem;
+            align-items: center;
         }
 
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1rem;
             transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a:hover {
@@ -96,7 +108,7 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -111,19 +123,21 @@
         .cta-button {
             background: linear-gradient(135deg, #00CFFF, #0099CC);
             color: #000000;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 207, 255, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 207, 255, 0.4);
+            box-shadow: 0 6px 25px rgba(0, 207, 255, 0.5);
         }
 
         .cta-button::before {
@@ -141,12 +155,45 @@
             left: 100%;
         }
 
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #00CFFF;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Hamburger animation when active */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
             padding: 140px 0 90px;
             text-align: center;
-            background: linear-gradient(135deg, #0B0B0B 0%, #151515 100%);
+            background: #0B0B0B;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -154,40 +201,16 @@
             justify-content: center;
         }
 
-        .hero-media {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-        }
-
-        .hero-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(11, 11, 11, 0.7) 0%, rgba(21, 21, 21, 0.5) 100%);
-            z-index: 2;
-        }
 
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 2;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
+        /* Base gradient layer */
         .hero::before {
             content: '';
             position: absolute;
@@ -195,14 +218,39 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 207, 255, 0.05) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
+            background: linear-gradient(135deg, #0B0B0B 0%, #151515 50%, #0B0B0B 100%);
             z-index: 1;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+        /* Animated radial gradients - creates depth */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(0, 207, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(0, 153, 204, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 207, 255, 0.04) 0%, transparent 60%);
+            animation: heroGradientFloat 15s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes heroGradientFloat {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+            33% {
+                opacity: 0.8;
+                transform: scale(1.05) rotate(2deg);
+            }
+            66% {
+                opacity: 0.5;
+                transform: scale(0.98) rotate(-2deg);
+            }
         }
 
         .hero h1 {
@@ -212,23 +260,69 @@
             line-height: 1.1;
             position: relative;
             z-index: 2;
+            max-width: 1050px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .highlight {
-            color: #00CFFF;
-            position: relative;
-        }
-
-        .highlight::after {
+        /* Hero underline accent for "Actually Grows" */
+        .hero h1 .highlight::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, #00CFFF, #0099CC);
             border-radius: 2px;
-            opacity: 0.8;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            background: linear-gradient(
+                90deg,
+                #00CFFF 0%,
+                #00E5FF 25%,
+                #00CFFF 50%,
+                #0099CC 75%,
+                #00CFFF 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% centre;
+            }
+            100% {
+                background-position: 200% centre;
+            }
+        }
+
+        /* Fallback for browsers that don't support background-clip: text */
+        @supports not (-webkit-background-clip: text) {
+            .highlight {
+                color: #00CFFF;
+                background: none;
+                -webkit-text-fill-color: unset;
+            }
+            
+            .highlight::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #00CFFF, #0099CC);
+                border-radius: 2px;
+                opacity: 0.8;
+            }
         }
 
         .hero p {
@@ -330,7 +424,26 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
+            display: block;
+            width: 100%;
             position: relative;
+        }
+
+        /* Keep only the underline on highlighted text */
+        .section-title .highlight {
+            color: #00CFFF;
+            position: relative;
+        }
+
+        .section-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            border-radius: 2px;
         }
 
         .section-title .highlight::after {
@@ -372,14 +485,7 @@
             min-height: 400px;
             display: flex;
             flex-direction: column;
-        }
-
-        .service-card:nth-child(odd) {
             background: rgba(20, 20, 20, 0.6);
-        }
-
-        .service-card:nth-child(even) {
-            background: rgba(24, 24, 24, 0.6);
         }
 
         .service-card::before {
@@ -400,6 +506,7 @@
             box-shadow: 0 25px 50px rgba(0, 207, 255, 0.15);
         }
 
+
         .service-card:hover::before {
             opacity: 1;
         }
@@ -407,7 +514,7 @@
         .service-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.1), rgba(0, 153, 204, 0.05));
             border-radius: 18px;
             display: flex;
             align-items: center;
@@ -416,7 +523,61 @@
             font-size: 1.8rem;
             position: relative;
             z-index: 2;
-            box-shadow: 0 8px 25px rgba(0, 207, 255, 0.3);
+            border: 1px solid rgba(0, 207, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #00CFFF;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 207, 255, 0.4);
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.15), rgba(0, 153, 204, 0.1));
+        }
+
+        .service-card:hover .service-icon svg {
+            stroke: #00E5FF;
+            transform: scale(1.05);
+        }
+
+        .service-icon svg,
+        .stat-icon svg {
+            color: #00CFFF;
+            stroke: #00CFFF;
+            transition: all 0.3s ease;
+        }
+
+        .credibility .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 207, 255, 0.1);
+            border: 2px solid rgba(0, 207, 255, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .credibility .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #00CFFF;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .credibility .stat:hover .stat-icon {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.4);
         }
 
         /* Image Art Placeholders */
@@ -463,18 +624,20 @@
         }
 
         .service-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            color: #00CFFF;
+            color: #ffffff;
             position: relative;
             z-index: 2;
+            line-height: 1.3;
         }
 
         .service-card p {
             color: #b3b3b3;
             margin-bottom: 2rem;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05rem;
             flex-grow: 1;
             position: relative;
             z-index: 2;
@@ -501,6 +664,7 @@
         .credibility {
             padding: 100px 0;
             background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            position: relative;
         }
 
         .credibility-stats {
@@ -519,6 +683,11 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .credibility .stat::before {
@@ -534,9 +703,15 @@
         }
 
         .credibility .stat:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: rgba(0, 207, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 207, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 207, 255, 0.15);
+        }
+
+        .credibility .stat:hover .stat-icon {
+            transform: scale(1.1);
+            background: rgba(0, 207, 255, 0.15);
+            border-color: rgba(0, 207, 255, 0.4);
         }
 
         .credibility .stat:hover::before {
@@ -544,59 +719,73 @@
         }
 
         .credibility .stat-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 207, 255, 0.1);
+            border: 2px solid rgba(0, 207, 255, 0.2);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-            position: relative;
-            z-index: 2;
+            transition: all 0.3s ease;
         }
 
         .credibility .stat-number {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #00CFFF;
             margin-bottom: 1rem;
             position: relative;
             z-index: 2;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
         .credibility .stat-label {
             color: #b3b3b3;
-            font-weight: 400;
-            font-size: 1rem;
+            font-weight: 500;
+            font-size: 1.1rem;
             line-height: 1.5;
             position: relative;
             z-index: 2;
         }
 
-        /* Methodology Section */
+        /* Methodology Section - Our SEO Approach */
         .methodology {
             padding: 100px 0;
-            background: #090b0b;
+            background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .methodology-bg-video {
+        /* Animated diagonal gradient sweep */
+        .methodology::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(0, 207, 255, 0.08) 45%,
+                rgba(0, 207, 255, 0.12) 50%,
+                rgba(0, 207, 255, 0.08) 55%,
+                transparent 60%
+            );
+            animation: diagonalSweep 15s linear infinite;
             z-index: 1;
-            opacity: 0.3;
         }
 
-        .methodology-bg-video video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes diagonalSweep {
+            0% {
+                transform: translate(-30%, -30%) rotate(45deg);
+            }
+            100% {
+                transform: translate(30%, 30%) rotate(45deg);
+            }
         }
 
         .methodology .container {
@@ -662,25 +851,24 @@
         }
 
         .approach-step-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(0, 207, 255, 0.1);
-            border: 2px solid rgba(0, 207, 255, 0.3);
+            width: 60px;
+            height: 60px;
+            background: #00CFFF;
             border-radius: 50%;
             margin-bottom: 1rem;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #000000;
+            transition: all 0.3s ease;
         }
 
-        .approach-step-icon::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 12px;
-            height: 12px;
-            background: #00CFFF;
-            border-radius: 50%;
+        .approach-step:hover .approach-step-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 207, 255, 0.4);
         }
 
         .approach-step h4 {
@@ -699,11 +887,11 @@
 
         .approach-connector {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
+            top: 30px;
+            left: 60px;
+            right: 60px;
             height: 2px;
-            background: linear-gradient(90deg, rgba(0, 207, 255, 0.3), rgba(0, 207, 255, 0.1), rgba(0, 207, 255, 0.3));
+            background: rgba(0, 207, 255, 0.2);
             z-index: 1;
         }
 
@@ -711,10 +899,16 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 33.33%;
-            width: 33.33%;
+            left: 0;
+            width: 50%;
             height: 100%;
-            background: rgba(0, 207, 255, 0.2);
+            background: rgba(0, 207, 255, 0.4);
+            animation: progressLine 3s ease-in-out infinite;
+        }
+
+        @keyframes progressLine {
+            0%, 100% { width: 30%; opacity: 0.4; }
+            50% { width: 70%; opacity: 0.8; }
         }
 
         .methodology-text {
@@ -816,6 +1010,7 @@
         .why-choose {
             padding: 100px 0;
             background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            position: relative;
         }
 
         .why-intro {
@@ -940,11 +1135,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 207, 255, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse at centre, rgba(0, 207, 255, 0.08) 0%, transparent 70%);
             animation: pulse 3s ease-in-out infinite;
             z-index: 1;
         }
 
+        /* Keep existing video, add enhanced pulsing overlay on top */
         .cta-section::before {
             content: '';
             position: absolute;
@@ -952,8 +1148,31 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 207, 255, 0.08) 0%, transparent 70%);
-            animation: pulse 3s ease-in-out infinite;
+            background: radial-gradient(
+                ellipse at 50% 50%,
+                rgba(0, 207, 255, 0.2) 0%,
+                rgba(0, 207, 255, 0.1) 40%,
+                transparent 70%
+            );
+            animation: ctaPulse 4s ease-in-out infinite;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 3;
         }
 
         .cta-section h2 {
@@ -1059,8 +1278,45 @@
             font-size: 0.95rem;
         }
 
-        /* Mobile Responsive */
+        /* Ultra-wide screens */
+        @media (min-width: 1600px) {
+            .hero h1 {
+                font-size: 4rem;
+                max-width: 1100px;
+            }
+        }
+
+        /* Laptop/Desktop Responsive */
+        @media (max-width: 1440px) {
+            .hero h1 {
+                font-size: 3.5rem;
+                line-height: 1.15;
+                max-width: 900px;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 650px;
+            }
+        }
+
+        /* Tablet Responsive */
         @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+                line-height: 1.2;
+                max-width: 700px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 600px;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
@@ -1087,31 +1343,73 @@
         }
 
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
             .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-top: 1px solid rgba(0, 207, 255, 0.2);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+                font-size: 1.1rem;
+            }
+            
+            .nav-links a::after {
                 display: none;
             }
 
             /* Mobile Header Spacing */
+            header {
+                padding: 1rem 0;
+            }
+
             nav {
                 gap: 0.5rem;
                 flex-wrap: nowrap;
             }
 
             .logo {
-                height: 60px;
+                height: 50px;
                 flex-shrink: 1;
             }
 
             .logo img {
                 height: 120%;
-                min-width: 150px;
-                max-width: 250px;
+                min-width: 120px;
+                max-width: 200px;
                 object-position: left center;
             }
 
             .cta-button {
-                padding: 10px 16px;
-                font-size: 0.85rem;
+                padding: 10px 20px;
+                font-size: 0.9rem;
                 flex-shrink: 0;
             }
 
@@ -1133,6 +1431,7 @@
                 font-size: 2.8rem;
                 margin-bottom: 2.5rem;
                 line-height: 1.2;
+                max-width: 100%;
             }
 
             .hero p {
@@ -1157,9 +1456,28 @@
                 gap: 2rem;
             }
 
+            .service-card {
+                padding: 2rem 1.5rem;
+                min-height: 320px;
+            }
+
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .service-card p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
             .credibility-stats {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .credibility .stat {
+                padding: 2.5rem 1.5rem;
+                min-height: 240px;
             }
 
             .why-grid {
@@ -1216,7 +1534,26 @@
             }
 
             .container {
-                padding: 0 15px;
+                padding: 0 20px;
+            }
+
+            /* Mobile touch targets */
+            .service-card,
+            .credibility .stat,
+            .why-item {
+                min-height: 44px;
+            }
+
+            /* Mobile typography improvements */
+            .section-title {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .services-subtitle,
+            .section-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.6;
             }
 
             /* Prevent horizontal overflow */
@@ -1258,6 +1595,22 @@
                 max-width: none;
             }
         }
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Clickable phone number styling */
+        footer a[href^="tel:"] {
+            color: #b3b3b3;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a[href^="tel:"]:hover {
+            color: #00CFFF;
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -1265,6 +1618,11 @@
     <header>
         <nav class="container">
             <div class="logo"><img src="spyda-digital-square-logo-transparent.png" alt="Spyda Digital"></div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="mailto:bailey@spyda.digital">Contact</a></li>
@@ -1275,13 +1633,6 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-media">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="SEO hero 2 crop.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>SEO That <span class="highlight">Actually Grows</span> Your Business</h1>
             <p>Data-driven search strategy that generates qualified leads and revenue, not just rankings. No fluff. No vanity metrics. Just transparent SEO that delivers measurable results.</p>
@@ -1298,17 +1649,35 @@
             <h2 class="section-title">Trusted by <span class="highlight">Established</span> Businesses</h2>
             <div class="credibility-stats">
                 <div class="stat">
-                    <div class="stat-icon">🎯</div>
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                    </div>
                     <div class="stat-number">Specialist SEO</div>
                     <div class="stat-label">Focused solely on search. We stick to what we're good at.</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-icon">📊</div>
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18"></path>
+                            <path d="M18 17V9"></path>
+                            <path d="M13 17V5"></path>
+                            <path d="M8 17v-3"></path>
+                        </svg>
+                    </div>
                     <div class="stat-number">Data-Driven</div>
                     <div class="stat-label">No guessing. Every decision backed by research and performance data.</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-icon">🔍</div>
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
                     <div class="stat-number">Transparent</div>
                     <div class="stat-label">Reports you'll actually understand. Not spreadsheets full of vanity metrics.</div>
                 </div>
@@ -1323,32 +1692,67 @@
             <p class="services-subtitle">Comprehensive search strategy focused on what actually drives business growth: qualified traffic, leads, and revenue.</p>
             <div class="services-grid">
                 <div class="service-card" id="seo-audits">
-                    <div class="service-icon">🔍</div>
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                    </div>
                     <h3>SEO Audits & Strategy</h3>
                     <p>Find out exactly what's holding your rankings back and get a clear 6-month roadmap to fix it. Comprehensive technical analysis, competitor research, and strategic planning that actually identifies revenue opportunities, not just SEO errors.</p>
                 </div>
                 <div class="service-card" id="technical-seo">
-                    <div class="service-icon">⚙️</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Technical SEO</h3>
                     <p>Fix the foundation Google actually cares about. Core Web Vitals optimisation, SSL certificates, structured data, mobile responsiveness: all the technical elements that separate page 1 from page 3. We ensure your technical setup supports, not sabotages, your rankings.</p>
                 </div>
                 <div class="service-card" id="local-seo">
-                    <div class="service-icon">📍</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Local SEO</h3>
                     <p>Dominate local search and get customers finding you first. Google Business Profile optimisation, local directory listings, and location-specific content that drives qualified local traffic to your business.</p>
                 </div>
                 <div class="service-card" id="geo-optimisation">
-                    <div class="service-icon">🤖</div>
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                            <path d="M5 3v4"></path>
+                            <path d="M19 17v4"></path>
+                            <path d="M3 5h4"></path>
+                            <path d="M17 19h4"></path>
+                        </svg>
+                    </div>
                     <h3>GEO Optimisation</h3>
                     <p>Future-proof your search presence for Google's AI-powered results. We optimise for Generative Engine Optimisation to ensure your business appears in AI-generated search responses, keeping you visible as search evolves.</p>
                 </div>
                 <div class="service-card" id="content-reporting">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 20V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Content & Reporting</h3>
                     <p>Strategic content that ranks and converts. We track real metrics: non-branded traffic, conversions, and qualified enquiries, with transparent monthly reporting. You'll know exactly what's working and why, with insights you can actually use.</p>
                 </div>
                 <div class="service-card" id="conversion-optimisation">
-                    <div class="service-icon">🎯</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <h3>Conversion Optimisation</h3>
                     <p>Turn your increased traffic into measurable business results. Landing page optimisation, conversion tracking, and lead generation strategies that transform your SEO investment into revenue growth.</p>
                 </div>
@@ -1358,11 +1762,6 @@
 
     <!-- Our SEO Approach Section -->
     <section id="approach" class="methodology">
-        <div class="methodology-bg-video">
-            <video autoplay muted loop playsinline>
-                <source src="SEO Consultant Background.mp4" type="video/mp4">
-            </video>
-        </div>
         <div class="container">
             <h2 class="section-title">Our <span class="highlight">SEO</span> Approach</h2>
             
@@ -1370,17 +1769,17 @@
             <div class="approach-timeline">
                 <div class="approach-connector"></div>
                 <div class="approach-step">
-                    <div class="approach-step-icon"></div>
+                    <div class="approach-step-icon">01</div>
                     <h4>Research & Audit</h4>
                     <p>Comprehensive analysis of your current position and competitive landscape</p>
                 </div>
                 <div class="approach-step">
-                    <div class="approach-step-icon"></div>
+                    <div class="approach-step-icon">02</div>
                     <h4>Strategy & Implementation</h4>
                     <p>Data-driven recommendations executed with precision and transparency</p>
                 </div>
                 <div class="approach-step">
-                    <div class="approach-step-icon"></div>
+                    <div class="approach-step-icon">03</div>
                     <h4>Measure & Optimise</h4>
                     <p>Continuous monitoring and refinement for sustained growth</p>
                 </div>
@@ -1471,7 +1870,7 @@
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p><a href="mailto:bailey@spyda.digital">bailey@spyda.digital</a></p>
-                    <p>+44 7340 379 946</p>
+                    <p><a href="tel:+441722549439">01722 549439</a></p>
                     <p>Old Fire Station Enterprise Centre, Salt Lane, Salisbury, Wiltshire, United Kingdom, SP1 1DU</p>
                 </div>
             </div>
@@ -1496,15 +1895,43 @@
             });
         });
 
-        // Add scroll effect to header
+        // Enhanced scroll effect for header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.classList.remove('scrolled');
             }
         });
+
+        // Mobile menu toggle functionality
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking a link
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav')) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>
