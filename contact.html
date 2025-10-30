@@ -768,11 +768,16 @@
             }
 
             /* Contact Page Mobile Styles */
+            .services > .container {
+                padding: 0 20px !important;
+            }
+
             .services > .container > div {
                 grid-template-columns: 1fr !important;
                 gap: 2rem !important;
                 width: 100% !important;
                 max-width: 100% !important;
+                overflow-x: hidden !important;
             }
 
             .services > .container > div h1 {
@@ -784,10 +789,11 @@
             }
 
             .services > .container > div form {
-                padding: 2rem 1.5rem !important;
+                padding: 2rem 1rem !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
+                overflow-x: hidden !important;
             }
 
             .services > .container > div form h3 {
@@ -804,7 +810,8 @@
 
         /* Global reCAPTCHA spacing */
         [data-netlify-recaptcha="true"] {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
         }
     </style>
 </head>
