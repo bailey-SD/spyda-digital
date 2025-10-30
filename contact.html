@@ -766,6 +766,28 @@
             .footer-section:last-child p {
                 margin-left: 25px;
             }
+
+            /* Contact Page Mobile Styles */
+            .services > .container > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .services > .container > div h1 {
+                font-size: 2rem !important;
+            }
+
+            .services > .container > div p {
+                font-size: 1rem !important;
+            }
+
+            .services > .container > div form {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .services > .container > div form h3 {
+                font-size: 1.5rem !important;
+            }
         }
     </style>
 </head>
@@ -939,9 +961,6 @@
                             ></textarea>
                         </div>
 
-                        <!-- reCAPTCHA -->
-                        <div data-netlify-recaptcha="true"></div>
-
                         <!-- Submit Button -->
                         <button 
                             type="submit"
@@ -952,6 +971,9 @@
                         >
                             Send Message
                         </button>
+
+                        <!-- reCAPTCHA -->
+                        <div data-netlify-recaptcha="true"></div>
                     </form>
                 </div>
             </div>
