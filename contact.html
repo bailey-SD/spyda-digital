@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Spyda Digital</title>
-    <meta name="description" content="Get in touch to discuss your SEO requirements. Spyda Digital - data-driven SEO specialists in Salisbury.">
+    <meta name="description" content="Start generating more qualified leads & revenue online with Spyda Digital. Fill out our form. Contact us on 01722 549439 or email bailey@spyda.digital.">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="https://spyda.digital/contact">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -771,6 +771,8 @@
             .services > .container > div {
                 grid-template-columns: 1fr !important;
                 gap: 2rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
             }
 
             .services > .container > div h1 {
@@ -783,11 +785,26 @@
 
             .services > .container > div form {
                 padding: 2rem 1.5rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
             }
 
             .services > .container > div form h3 {
                 font-size: 1.5rem !important;
             }
+
+            .services > .container > div form input,
+            .services > .container > div form textarea,
+            .services > .container > div form button {
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        /* Global reCAPTCHA spacing */
+        [data-netlify-recaptcha="true"] {
+            margin-top: 1.5rem;
         }
     </style>
 </head>
