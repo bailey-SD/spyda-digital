@@ -825,6 +825,51 @@
     </style>
 </head>
 <body>
+    <style>
+        /* Mobile-specific fixes for contact page grid overflow */
+        /* Global safety to prevent grid overflow */
+        .services .container > div { 
+            min-width: 0; 
+        }
+        .services .container > div > * { 
+            min-width: 0; 
+        }
+        .services .container form, 
+        .services .container input, 
+        .services .container textarea, 
+        .services .container button { 
+            min-width: 0; 
+        }
+
+        /* Mobile grid centering fix */
+        @media (max-width: 768px) {
+            html, body { 
+                overflow-x: clip; 
+            }
+            
+            .container { 
+                padding-inline: 20px !important; 
+                margin-inline: auto; 
+            }
+            
+            .services > .container > div {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) !important;
+                place-items: start center !important;
+                gap: 2rem !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+            
+            .services > .container > div form {
+                width: 100% !important;
+                max-width: 640px !important;
+                margin-inline: auto !important;
+                box-sizing: border-box !important;
+                word-break: break-word;
+            }
+        }
+    </style>
     <!-- Header -->
     <header>
         <nav class="container">
