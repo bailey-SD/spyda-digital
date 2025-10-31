@@ -846,6 +846,7 @@
                 min-height: 64px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -909,9 +910,9 @@
             </button>
             <ul class="nav-links">
                 <li><a href="index.html#services">Services</a></li>
-                <li><a href="mailto:bailey@spyda.digital">Contact</a></li>
+                <li><a href="https://spyda.digital/contact">Contact</a></li>
             </ul>
-            <a href="mailto:bailey@spyda.digital" class="cta-button">Get Started</a>
+            <a href="https://calendar.app.google/6RkZQoCWNjYqRCoJA" class="cta-button">Book Call</a>
         </nav>
     </header>
 
@@ -1001,7 +1002,7 @@
 
                         <!-- Name -->
                         <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Name</label>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Name <span style="color: #ffffff;">*</span></label>
                             <input 
                                 type="text" 
                                 name="name" 
@@ -1015,7 +1016,7 @@
 
                         <!-- Email -->
                         <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Email</label>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Email <span style="color: #ffffff;">*</span></label>
                             <input 
                                 type="email" 
                                 name="email" 
@@ -1033,7 +1034,7 @@
                             <input 
                                 type="tel" 
                                 name="phone" 
-                                placeholder="01722 000000" 
+                                placeholder="01234 567 890" 
                                 style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
                                 onfocus="this.style.borderColor='#00CFFF'"
                                 onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
@@ -1042,12 +1043,11 @@
 
                         <!-- Website -->
                         <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Website URL</label>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Website URL (Optional)</label>
                             <input 
                                 type="url" 
                                 name="website" 
                                 placeholder="https://yoursite.com" 
-                                required 
                                 style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
                                 onfocus="this.style.borderColor='#00CFFF'"
                                 onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
@@ -1056,11 +1056,12 @@
 
                         <!-- Message -->
                         <div style="margin-bottom: 2rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Message (Optional)</label>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Message <span style="color: #ffffff;">*</span></label>
                             <textarea 
                                 name="message" 
                                 rows="5" 
                                 placeholder="Tell us about your requirements"
+                                required
                                 style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; resize: vertical; transition: all 0.3s ease;"
                                 onfocus="this.style.borderColor='#00CFFF'"
                                 onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
