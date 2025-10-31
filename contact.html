@@ -822,6 +822,30 @@
         [data-netlify-recaptcha="true"] {
             margin-top: 0 !important;
         }
+
+        /* reCAPTCHA reserved space to prevent CLS */
+        .captcha-reserved {
+            min-height: 78px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* Show reCAPTCHA once loaded */
+        .captcha-reserved:has([data-netlify-recaptcha="true"]:not(:empty)) {
+            visibility: visible;
+        }
+
+        /* Fallback for browsers without :has support */
+        .captcha-reserved.loaded {
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .captcha-reserved {
+                min-height: 64px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1055,7 +1079,9 @@
                         </button>
 
                         <!-- reCAPTCHA -->
-                        <div data-netlify-recaptcha="true" style="margin-top: 0;"></div>
+                        <div class="captcha-reserved">
+                            <div data-netlify-recaptcha="true" style="margin-top: 0;"></div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1136,6 +1162,32 @@
                     mobileToggle.classList.remove('active');
                 }
             });
+        }
+
+        // Mark reCAPTCHA as loaded to prevent CLS
+        const captchaReserved = document.querySelector('.captcha-reserved');
+        if (captchaReserved) {
+            const captchaDiv = captchaReserved.querySelector('[data-netlify-recaptcha="true"]');
+            if (captchaDiv) {
+                // Check if reCAPTCHA is already loaded
+                if (captchaDiv.children.length > 0) {
+                    captchaReserved.classList.add('loaded');
+                } else {
+                    // Watch for reCAPTCHA to load
+                    const observer = new MutationObserver(function(mutations) {
+                        if (captchaDiv.children.length > 0) {
+                            captchaReserved.classList.add('loaded');
+                            observer.disconnect();
+                        }
+                    });
+                    observer.observe(captchaDiv, { childList: true });
+                    
+                    // Fallback timeout
+                    setTimeout(function() {
+                        captchaReserved.classList.add('loaded');
+                    }, 2000);
+                }
+            }
         }
     </script>
 </body>
