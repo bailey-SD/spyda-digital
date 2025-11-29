@@ -829,6 +829,13 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
             margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .footer-section h3 {
@@ -845,6 +852,15 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            margin-top: 0;
+        }
+
+        .footer-section:first-child {
+            padding-top: 0;
+        }
+
+        .footer-section:last-child h3 {
+            margin-top: 0;
         }
 
         .footer-logo img {
@@ -1056,7 +1072,7 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="https://spyda.digital/" class="logo"><img src="/spyda-digital-logo-new.png" alt="Spyda Digital"></a>
+            <a href="https://spyda.digital/" class="logo"><img src="../spyda-digital-logo-new.png" alt="Spyda Digital"></a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -1240,7 +1256,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="/spyda-digital-logo-new.png" alt="Spyda Digital">
+                        <img src="../spyda-digital-logo-new.png" alt="Spyda Digital">
                     </div>
                     <p>Data-driven SEO specialists focused on delivering measurable results that generate leads and grow your business.</p>
                 </div>
