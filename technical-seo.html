@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical SEO - Fix Your Technical SEO Problems - Spyda</title>
+    <meta name="description" content="Technical SEO that works. Increased organic traffic and visibility. 40% average speed improvement. Learn more about our technical SEO services.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://spyda.digital/services/technical-seo/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0B0B0B 0%, #151515 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 207, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            object-position: left center;
+            max-width: 300px;
+            background: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links li:not(:last-child)::after {
+            content: '/';
+            color: #00CFFF;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-left: 1.5rem;
+            margin-right: -1.5rem;
+            vertical-align: middle;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            vertical-align: middle;
+        }
+
+        .nav-links a:hover {
+            color: #00CFFF;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            color: #000000;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 207, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 207, 255, 0.5);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #00CFFF;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 280px 0 180px;
+            text-align: center;
+            background: #0B0B0B;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0, 207, 255, 0.12) 0%,
+                rgba(0, 207, 255, 0.06) 30%,
+                transparent 60%
+            );
+            animation: heroPulse 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes heroPulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.15;
+            position: relative;
+            z-index: 2;
+            max-width: 1050px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            border-radius: 2px;
+            opacity: 0.9;
+        }
+
+        .hero h1 .second-line {
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(
+                90deg,
+                #00CFFF 0%,
+                #00E5FF 25%,
+                #00CFFF 50%,
+                #0099CC 75%,
+                #00CFFF 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% centre;
+            }
+            100% {
+                background-position: 200% centre;
+            }
+        }
+
+        @supports not (-webkit-background-clip: text) {
+            .highlight {
+                color: #00CFFF;
+                background: none;
+                -webkit-text-fill-color: unset;
+            }
+            
+            .highlight::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #00CFFF, #0099CC);
+                border-radius: 2px;
+                opacity: 0.8;
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #b3b3b3;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            color: #000000;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 207, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 207, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            padding: 20px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00CFFF;
+            color: #00CFFF;
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-secondary:hover::before {
+            opacity: 1;
+        }
+
+        /* Stats/Info Section - "The Results You'll See" */
+        .credibility {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            position: relative;
+        }
+
+        .results-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .results-content {
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+        }
+
+        .results-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00CFFF;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(
+                90deg,
+                #00CFFF 0%,
+                #00E5FF 25%,
+                #00CFFF 50%,
+                #0099CC 75%,
+                #00CFFF 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .results-intro {
+            font-size: 1.1rem;
+            color: #b3b3b3;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .results-stats-grid {
+            margin-top: calc(3rem * 1.2 + 1.5rem);
+            align-self: start;
+        }
+
+        .results-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .results-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .results-benefits li::before {
+            content: '✓';
+            color: #00CFFF;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 207, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .results-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .results-stat-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 207, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .results-stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 207, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 207, 255, 0.1);
+        }
+
+        .results-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00CFFF;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .results-stat-label {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+
+        .section-title .highlight {
+            color: #00CFFF;
+            position: relative;
+        }
+
+        .section-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            border-radius: 2px;
+        }
+
+        /* Services/Features Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 207, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(20, 20, 20, 0.6);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.02), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 207, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 207, 255, 0.15);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.1), rgba(0, 153, 204, 0.05));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(0, 207, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #00CFFF;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 207, 255, 0.4);
+        }
+
+        .service-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: #b3b3b3;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            position: relative;
+        }
+
+        .why-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .why-intro p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(20, 20, 20, 0.4);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 207, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.02), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 207, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 207, 255, 0.1);
+        }
+
+        .why-item:hover::before {
+            opacity: 1;
+        }
+
+        .why-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #000000;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 207, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover .why-number {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 207, 255, 0.4);
+        }
+
+        .why-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-item p {
+            color: #b3b3b3;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                ellipse at 50% 50%,
+                rgba(0, 207, 255, 0.2) 0%,
+                rgba(0, 207, 255, 0.1) 40%,
+                transparent 70%
+            );
+            animation: ctaPulse 4s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #b3b3b3;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #000000 0%, #0B0B0B 100%);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(0, 207, 255, 0.2);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00CFFF, transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #00CFFF;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+            height: 90px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+            max-width: 400px;
+            object-fit: contain;
+            object-position: left center;
+            background: transparent;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #b3b3b3;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: all 0.3s ease;
+            line-height: 1.5;
+        }
+
+        .footer-section a:hover {
+            color: #00CFFF;
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(0, 207, 255, 0.1);
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-top: 1px solid rgba(0, 207, 255, 0.2);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links li:not(:last-child)::after {
+                display: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+                font-size: 1.1rem;
+            }
+
+            header {
+                padding: 1rem 0;
+            }
+
+            nav {
+                gap: 0.5rem;
+                flex-wrap: nowrap;
+            }
+
+            .logo {
+                height: 50px;
+                flex-shrink: 1;
+            }
+
+            .logo img {
+                height: 100%;
+                max-width: 120px;
+            }
+
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .credibility,
+            .services,
+            .why-choose,
+            .cta-section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding: 140px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 2.5rem;
+                line-height: 1.25;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+                min-height: 320px;
+            }
+
+            .results-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .results-title {
+                font-size: 2.2rem;
+            }
+
+            .results-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .results-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        footer a[href^="tel:"] {
+            color: #b3b3b3;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a[href^="tel:"]:hover {
+            color: #00CFFF;
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="https://spyda.digital/" class="logo"><img src="../spyda-digital-logo-new.png" alt="Spyda Digital"></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="https://spyda.digital/#services">Services</a></li>
+                <li><a href="https://spyda.digital/contact/">Contact</a></li>
+            </ul>
+            <a href="https://calendar.app.google/6RkZQoCWNjYqRCoJA" class="cta-button">Book Call</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1><span class="highlight">Technical SEO</span> That Works</h1>
+            <p>Fix the foundation Google actually cares about. We ensure your technical setup supports, not sabotages, your rankings. Learn more about our technical SEO services.</p>
+            <div class="hero-buttons">
+                <a href="https://calendar.app.google/ch8Ja7v2k9TjErVZ6" class="btn-primary">Book Your Strategy Call</a>
+                <a href="#features" class="btn-secondary">What's Included</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats/Info Section - "The Results You'll See" -->
+    <section class="credibility">
+        <div class="container">
+            <div class="results-section">
+                <div class="results-content">
+                    <h2 class="results-title">The Results You'll See</h2>
+                    <p class="results-intro">Technical SEO improvements deliver measurable results across multiple metrics. Here's what you can expect when we optimise your site's technical foundation.</p>
+                    <ul class="results-benefits">
+                        <li>Higher search engine rankings for target keywords</li>
+                        <li>Improved Core Web Vitals and page speed scores</li>
+                        <li>Increased organic traffic and visibility</li>
+                        <li>Better user experience and lower bounce rates</li>
+                        <li>More pages indexed by search engines</li>
+                        <li>Enhanced mobile performance and usability</li>
+                    </ul>
+                </div>
+                <div class="results-stats-grid">
+                    <div class="results-stat-card">
+                        <div class="results-stat-number">40%</div>
+                        <div class="results-stat-label">Average Speed Improvement</div>
+                    </div>
+                    <div class="results-stat-card">
+                        <div class="results-stat-number">2.5x</div>
+                        <div class="results-stat-label">Increase in Crawled Pages</div>
+                    </div>
+                    <div class="results-stat-card">
+                        <div class="results-stat-number">65%</div>
+                        <div class="results-stat-label">Boost in Organic Traffic</div>
+                    </div>
+                    <div class="results-stat-card">
+                        <div class="results-stat-number">90+</div>
+                        <div class="results-stat-label">Average PageSpeed Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features/What's Included Section -->
+    <section id="features" class="services">
+        <div class="container">
+            <h2 class="section-title">What's Included In <span class="highlight">Technical SEO</span></h2>
+            <p class="services-subtitle" style="text-align: center; font-size: 1.3rem; color: #b3b3b3; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">Comprehensive technical optimisation that fixes the foundation Google actually cares about. Every element designed to support, not sabotage, your rankings.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Core Web Vitals Optimisation</h3>
+                    <p>Improve Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS) to meet Google's performance standards. These metrics directly impact your search rankings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>SSL Certificate Configuration</h3>
+                    <p>Ensure your site uses HTTPS correctly with properly configured SSL certificates. Secure sites not only rank higher but also build user trust and protect customer data.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Mobile Responsiveness</h3>
+                    <p>Complete mobile optimisation ensuring your site performs flawlessly across all devices. Google's mobile-first indexing means your mobile experience directly affects rankings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Structured Data Implementation</h3>
+                    <p>Add Schema.org markup to help Google understand your content. Structured data can lead to rich snippets, enhanced search results, and improved click-through rates.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <h3>Sitemap & Robots.txt</h3>
+                    <p>Proper XML sitemap creation and robots.txt configuration ensures Google can efficiently crawl and index your site. We ensure search engines can access what they need and ignore what they shouldn't.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>Site Architecture & Navigation</h3>
+                    <p>Optimise your site's structure and internal linking to help search engines understand your content hierarchy. A well-organised site improves crawlability and user experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Technical SEO Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our <span class="highlight">Technical SEO</span> Service</h2>
+            <div class="why-intro">
+                <p>Technical SEO is the foundation that everything else builds on. Here's why our approach delivers results:</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-number">1</div>
+                    <h3>Google's Ranking Signals</h3>
+                    <p>We optimise for the technical elements Google actually uses to rank sites. Core Web Vitals, mobile-first indexing, and site speed aren't optional—they're essential.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">2</div>
+                    <h3>Foundation for Success</h3>
+                    <p>Great content and links mean nothing if Google can't crawl your site or users bounce due to poor performance. We build the technical foundation that supports everything else.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">3</div>
+                    <h3>Competitive Advantage</h3>
+                    <p>Most businesses ignore technical SEO basics. We ensure your site meets and exceeds Google's standards, giving you a clear edge over competitors.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">4</div>
+                    <h3>Transparent Results</h3>
+                    <p>We measure and report on real technical metrics: page speed improvements, Core Web Vitals scores, and crawl errors. You'll see exactly what's fixed and why it matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Stop Losing Rankings to<br><span class="highlight">Technical Issues</span></h2>
+            <p>Your competitors are fixing their technical SEO while you're losing visibility. Fix the foundation Google actually cares about. Start ranking higher today - get your technical SEO audit now.</p>
+            <a href="https://calendar.app.google/ch8Ja7v2k9TjErVZ6" class="btn-primary">Get Your Free SEO Audit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../spyda-digital-logo-new.png" alt="Spyda Digital">
+                    </div>
+                    <p>Data-driven SEO specialists focused on delivering measurable results that generate leads and grow your business.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="mailto:bailey@spyda.digital">bailey@spyda.digital</a></p>
+                    <p><a href="tel:+441722549439">01722 549439</a></p>
+                    <p>Old Fire Station Enterprise Centre, Salt Lane, Salisbury, Wiltshire, United Kingdom, SP1 1DU</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spyda Digital. All rights reserved. | VAT: GB497424157 | Company No: 15873966</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle functionality
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking a link
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav')) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
