@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Spyda Digital</title>
+    <meta name="description" content="Start generating more qualified leads & revenue online with Spyda Digital. Fill out our form. Contact us on 01722 549439 or email bailey@spyda.digital.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://spyda.digital/contact">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0B0B0B 0%, #151515 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        /* Scrolled state - enhanced styling */
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 207, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 207, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            object-position: left center;
+            max-width: 300px;
+            background: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links li:not(:last-child)::after {
+            content: '/';
+            color: #00CFFF;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-left: 1.5rem;
+            margin-right: -1.5rem;
+            vertical-align: middle;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            vertical-align: middle;
+        }
+
+        .nav-links a:hover {
+            color: #00CFFF;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            color: #000000;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 207, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 207, 255, 0.5);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #00CFFF;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Hamburger animation when active */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            padding: 140px 0 60px;
+            text-align: center;
+            background: #0B0B0B;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.15;
+            position: relative;
+            z-index: 2;
+            max-width: 1050px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            background: linear-gradient(
+                90deg,
+                #00CFFF 0%,
+                #00E5FF 25%,
+                #00CFFF 50%,
+                #0099CC 75%,
+                #00CFFF 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% centre;
+            }
+            100% {
+                background-position: 200% centre;
+            }
+        }
+
+        /* Fallback for browsers that don't support background-clip: text */
+        @supports not (-webkit-background-clip: text) {
+            .highlight {
+                color: #00CFFF;
+                background: none;
+                -webkit-text-fill-color: unset;
+            }
+            
+            .highlight::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #00CFFF, #0099CC);
+                border-radius: 2px;
+                opacity: 0.8;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #0B0B0B 0%, #000000 100%);
+            position: relative;
+        }
+
+        /* Section Spacing Normalization */
+        .credibility,
+        .methodology,
+        .why-choose,
+        .cta-section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Keep only the underline on highlighted text */
+        .section-title .highlight {
+            color: #00CFFF;
+            position: relative;
+        }
+
+        .section-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            border-radius: 2px;
+        }
+
+        .section-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00CFFF, #0099CC);
+            border-radius: 2px;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #b3b3b3;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 207, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(20, 20, 20, 0.6);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.02), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 207, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 207, 255, 0.15);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.1), rgba(0, 153, 204, 0.05));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(0, 207, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #00CFFF;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 207, 255, 0.4);
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.15), rgba(0, 153, 204, 0.1));
+        }
+
+        .service-card:hover .service-icon svg {
+            stroke: #00E5FF;
+            transform: scale(1.05);
+        }
+
+        .service-icon svg,
+        .stat-icon svg {
+            color: #00CFFF;
+            stroke: #00CFFF;
+            transition: all 0.3s ease;
+        }
+
+        .credibility .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 207, 255, 0.1);
+            border: 2px solid rgba(0, 207, 255, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .credibility .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #00CFFF;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .credibility .stat:hover .stat-icon {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.4);
+        }
+
+        .service-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: #b3b3b3;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-link {
+            color: #00CFFF;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.5);
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #00CFFF, #0099CC);
+            color: #000000;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 207, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 207, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            padding: 20px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00CFFF;
+            color: #00CFFF;
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-secondary:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #000000 0%, #0B0B0B 100%);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(0, 207, 255, 0.2);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00CFFF, transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #00CFFF;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+            height: 90px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+            max-width: 400px;
+            object-fit: contain;
+            object-position: left center;
+            background: transparent;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #b3b3b3;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: all 0.3s ease;
+            line-height: 1.5;
+        }
+
+        .footer-section .footer-logo + p {
+            margin-left: 40px;
+        }
+
+        .footer-section a:hover {
+            color: #00CFFF;
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(0, 207, 255, 0.1);
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Clickable phone number styling */
+        footer a[href^="tel:"] {
+            color: #b3b3b3;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a[href^="tel:"]:hover {
+            color: #00CFFF;
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .services > .container > div {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            nav {
+                gap: 0.5rem;
+                flex-wrap: nowrap;
+            }
+
+            .logo {
+                height: 50px;
+                flex-shrink: 1;
+            }
+
+            .logo img {
+                height: 100%;
+                max-width: 120px;
+                object-position: left center;
+            }
+
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-top: 1px solid rgba(0, 207, 255, 0.2);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links li:not(:last-child)::after {
+                display: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+                font-size: 1.1rem;
+            }
+            
+            .nav-links a::after {
+                display: none;
+            }
+
+            .hero {
+                min-height: 40vh !important;
+                padding: 140px 0 40px !important;
+            }
+            
+            .services > .container > div > div {
+                padding: 2rem !important;
+            }
+            
+            .services > .container > div > div h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-logo {
+                height: 60px;
+            }
+
+            .footer-logo img {
+                height: 100%;
+                max-width: 200px;
+                object-position: left center;
+            }
+
+            .footer-section .footer-logo + p {
+                margin-left: 25px;
+            }
+
+            .footer-section:last-child {
+                text-align: left;
+            }
+
+            .footer-section:last-child h3 {
+                margin-left: 25px;
+            }
+
+            .footer-section:last-child p {
+                margin-left: 25px;
+            }
+
+            /* Contact Page Mobile Styles */
+            .services > .container > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+
+            .services > .container > div h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+                word-wrap: break-word !important;
+            }
+
+            .services > .container > div p {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+                word-wrap: break-word !important;
+            }
+
+            .services > .container > div form {
+                padding: 2rem 1.5rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+            }
+
+            .services > .container > div form h3 {
+                font-size: 1.3rem !important;
+                word-wrap: break-word !important;
+            }
+
+            .services > .container > div form input,
+            .services > .container > div form textarea,
+            .services > .container > div form button {
+                font-size: 0.9rem !important;
+                padding: 0.9rem !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        /* Global reCAPTCHA spacing */
+        [data-netlify-recaptcha="true"] {
+            margin-top: 0 !important;
+        }
+
+        /* reCAPTCHA reserved space to prevent CLS */
+        .captcha-reserved {
+            min-height: 78px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* Show reCAPTCHA once loaded */
+        .captcha-reserved:has([data-netlify-recaptcha="true"]:not(:empty)) {
+            visibility: visible;
+        }
+
+        /* Fallback for browsers without :has support */
+        .captcha-reserved.loaded {
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .captcha-reserved {
+                min-height: 64px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <style>
+        /* Mobile-specific fixes for contact page grid overflow */
+        /* Global safety to prevent grid overflow */
+        .services .container > div { 
+            min-width: 0; 
+        }
+        .services .container > div > * { 
+            min-width: 0; 
+        }
+        .services .container form, 
+        .services .container input, 
+        .services .container textarea, 
+        .services .container button { 
+            min-width: 0; 
+        }
+
+        /* Mobile grid centering fix */
+        @media (max-width: 768px) {
+            html, body { 
+                overflow-x: clip; 
+            }
+            
+            .container { 
+                padding-inline: 20px !important; 
+                margin-inline: auto; 
+            }
+            
+            .services {
+                padding-top: 120px !important;
+            }
+            
+            .services > .container > div {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) !important;
+                place-items: start center !important;
+                gap: 2rem !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+            
+            .services > .container > div form {
+                width: 100% !important;
+                max-width: 640px !important;
+                margin-inline: auto !important;
+                box-sizing: border-box !important;
+                word-break: break-word;
+            }
+        }
+    </style>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo"><img src="spyda-digital-logo-new.png" alt="Spyda Digital"></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="https://spyda.digital/contact">Contact</a></li>
+            </ul>
+            <a href="https://calendar.app.google/6RkZQoCWNjYqRCoJA" class="cta-button">Book Call</a>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="services">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 40% 60%; gap: 4rem; align-items: start;">
+                
+                <!-- LEFT: Contact Info -->
+                <div style="display: flex; align-items: center; min-height: 100%;">
+                    <div>
+                        <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.2;"><span style="color: #00CFFF;">Contact</span> Us</h1>
+                        
+                        <p style="font-size: 1.2rem; color: #b3b3b3; line-height: 1.7; margin-bottom: 1.5rem;">
+                            Start generating more qualified leads and revenue through your website with Spyda Digital.
+                        </p>
+
+                        <p style="font-size: 1.2rem; color: #b3b3b3; line-height: 1.7; margin-bottom: 3rem;">
+                            Get in touch with us today via the contact details below or complete our form. We'll get back to you within 24 hours.
+                        </p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <!-- Email -->
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; background: rgba(0, 207, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0, 207, 255, 0.2);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00CFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div style="color: #00CFFF; font-weight: 500; margin-bottom: 0.5rem;">Email</div>
+                                <a href="mailto:bailey@spyda.digital" style="color: #ffffff; text-decoration: none; font-size: 1.1rem;">bailey@spyda.digital</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Phone -->
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; background: rgba(0, 207, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0, 207, 255, 0.2);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00CFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div style="color: #00CFFF; font-weight: 500; margin-bottom: 0.5rem;">Phone</div>
+                                <a href="tel:+441722549439" style="color: #ffffff; text-decoration: none; font-size: 1.1rem;">01722 549439</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Address -->
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; background: rgba(0, 207, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0, 207, 255, 0.2);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00CFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div style="color: #00CFFF; font-weight: 500; margin-bottom: 0.5rem;">Address</div>
+                                <div style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;">
+                                    Old Fire Station Enterprise Centre,<br>
+                                    Salt Lane, Salisbury, Wiltshire,<br>
+                                    United Kingdom, SP1 1DU
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RIGHT: Contact Form -->
+                <div>
+                    <form 
+                        name="contact-page" 
+                        method="POST" 
+                        data-netlify="true" 
+                        data-netlify-honeypot="bot-field"
+                        data-netlify-recaptcha="true"
+                        style="background: rgba(20, 20, 20, 0.6); padding: 3rem; border-radius: 20px; border: 1px solid rgba(0, 207, 255, 0.1);"
+                    >
+                        <input type="hidden" name="form-name" value="contact-page" />
+                        <p style="display: none;">
+                            <label>Don't fill this out: <input name="bot-field" /></label>
+                        </p>
+
+                        <h3 style="font-size: 1.8rem; font-weight: 600; color: #ffffff; margin-bottom: 2rem;">Let's Talk</h3>
+
+                        <!-- Name -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Name <span style="color: #ffffff;">*</span></label>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="Your name" 
+                                required 
+                                style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+                                onfocus="this.style.borderColor='#00CFFF'"
+                                onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Email <span style="color: #ffffff;">*</span></label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="your@email.com" 
+                                required 
+                                style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+                                onfocus="this.style.borderColor='#00CFFF'"
+                                onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
+                            />
+                        </div>
+
+                        <!-- Phone -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Phone (Optional)</label>
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                placeholder="01234 567 890" 
+                                style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+                                onfocus="this.style.borderColor='#00CFFF'"
+                                onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
+                            />
+                        </div>
+
+                        <!-- Website -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Website URL (Optional)</label>
+                            <input 
+                                type="url" 
+                                name="website" 
+                                placeholder="https://yoursite.com" 
+                                style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+                                onfocus="this.style.borderColor='#00CFFF'"
+                                onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
+                            />
+                        </div>
+
+                        <!-- Message -->
+                        <div style="margin-bottom: 2rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: #00CFFF; font-weight: 500; font-size: 0.95rem;">Message <span style="color: #ffffff;">*</span></label>
+                            <textarea 
+                                name="message" 
+                                rows="5" 
+                                placeholder="Tell us about your requirements"
+                                required
+                                style="width: 100%; padding: 1rem; background: #0B0B0B; border: 1px solid rgba(0, 207, 255, 0.2); border-radius: 10px; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif; resize: vertical; transition: all 0.3s ease;"
+                                onfocus="this.style.borderColor='#00CFFF'"
+                                onblur="this.style.borderColor='rgba(0, 207, 255, 0.2)'"
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit"
+                            class="btn-primary"
+                            style="width: 100%; background: linear-gradient(135deg, #00CFFF, #0099CC); color: #000000; padding: 1.2rem 2rem; border: none; border-radius: 12px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0, 207, 255, 0.3); margin-bottom: 3rem;"
+                            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(0, 207, 255, 0.5)';"
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0, 207, 255, 0.3)';"
+                        >
+                            Send Message
+                        </button>
+
+                        <!-- reCAPTCHA -->
+                        <div class="captcha-reserved">
+                            <div data-netlify-recaptcha="true" style="margin-top: 0;"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="spyda-digital-logo-new.png" alt="Spyda Digital">
+                    </div>
+                    <p>Data-driven SEO specialists focused on delivering measurable results that generate leads and grow your business.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="mailto:bailey@spyda.digital">bailey@spyda.digital</a></p>
+                    <p><a href="tel:+441722549439">01722 549439</a></p>
+                    <p>Old Fire Station Enterprise Centre, Salt Lane, Salisbury, Wiltshire, United Kingdom, SP1 1DU</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spyda Digital. All rights reserved. | VAT: GB497424157 | Company No: 15873966</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle functionality
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking a link
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav')) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                }
+            });
+        }
+
+        // Mark reCAPTCHA as loaded to prevent CLS
+        const captchaReserved = document.querySelector('.captcha-reserved');
+        if (captchaReserved) {
+            const captchaDiv = captchaReserved.querySelector('[data-netlify-recaptcha="true"]');
+            if (captchaDiv) {
+                // Check if reCAPTCHA is already loaded
+                if (captchaDiv.children.length > 0) {
+                    captchaReserved.classList.add('loaded');
+                } else {
+                    // Watch for reCAPTCHA to load
+                    const observer = new MutationObserver(function(mutations) {
+                        if (captchaDiv.children.length > 0) {
+                            captchaReserved.classList.add('loaded');
+                            observer.disconnect();
+                        }
+                    });
+                    observer.observe(captchaDiv, { childList: true });
+                    
+                    // Fallback timeout
+                    setTimeout(function() {
+                        captchaReserved.classList.add('loaded');
+                    }, 2000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
